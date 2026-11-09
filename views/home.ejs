@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favourite Subject Selection</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #eaf2f8;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            width: 400px;
+            margin: 60px auto;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input {
+            margin: 10px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Favourite Subject Selection</h2>
+
+    <form action="/submit" method="POST"
+          onsubmit="return validateForm()">
+
+        <label>Student Name:</label><br>
+        <input type="text" name="name" id="name" required>
+        <br>
+
+        <label>Register Number:</label><br>
+        <input type="text" name="regno" id="regno" required>
+        <br>
+
+        <h3>Select Favourite Subjects</h3>
+
+        <input type="checkbox" name="subjects"
+               value="Java"> Java <br>
+
+        <input type="checkbox" name="subjects"
+               value="Python"> Python <br>
+
+        <input type="checkbox" name="subjects"
+               value="DBMS"> DBMS <br>
+
+        <input type="checkbox" name="subjects"
+               value="Web Technology"> Web Technology <br>
+
+        <input type="checkbox" name="subjects"
+               value="Computer Networks"> Computer Networks <br>
+
+        <br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <footer>
+        © 26MX103 – Amritha
+    </footer>
+
+</div>
+
+<script>
+    function validateForm() {
+
+        let subjects = document.querySelectorAll(
+            'input[name="subjects"]:checked'
+        );
+
+        if (subjects.length === 0) {
+            alert("Please select at least one subject!");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+</body>
+</html>
